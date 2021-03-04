@@ -56,6 +56,10 @@
     background-color: $accent;
     color: $text-primary;
     border: none;
+
+    &--disabled {
+      background-color: #fa8b83;
+    }
   }
 }
 

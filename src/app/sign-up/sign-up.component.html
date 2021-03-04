@@ -1,34 +1,119 @@
 <div class="form-box">
   <h1 class="form-box__title">Sign up</h1>
   <div class="form-box__form">
-    <form action="" class="sign-in-form">
+    <form
+      action=""
+      class="sign-in-form"
+      [formGroup]="signUpForm"
+      (ngSubmit)="onSubmit()"
+    >
       <div class="control">
         <label class="control__label" for="email">Email address</label>
-        <input class="control__input" id="email" type="text" />
-        <p class="control__validator">Email required</p>
+        <input
+          class="control__input"
+          id="email"
+          type="text"
+          formControlName="email"
+        />
+        <p
+          *ngIf="controls.email.dirty && controls.email.errors?.required"
+          class="control__validator"
+        >
+          Email required
+        </p>
+        <p
+          class="control__validator"
+          *ngIf="controls.email.dirty && controls.email.errors?.email"
+        >
+          Invalid email address
+        </p>
       </div>
 
       <div class="control">
-        <label class="control__label" for="email">Full name</label>
-        <input class="control__input" id="email" type="text" />
-        <p class="control__validator">Email required</p>
+        <label class="control__label" for="fullName">Full name</label>
+        <input
+          class="control__input"
+          id="fullName"
+          type="text"
+          formControlName="fullName"
+        />
+        <p
+          *ngIf="controls.fullName.dirty && controls.fullName.errors?.required"
+          class="control__validator"
+        >
+          Full name is required
+        </p>
+        <p
+          *ngIf="
+            controls.fullName.dirty &&
+            controls.fullName.errors?.lessThanTwoWords
+          "
+          class="control__validator"
+        >
+          Missing last name
+        </p>
       </div>
 
       <div class="control">
         <label class="control__label" for="password">Password</label>
-        <input class="control__input" id="password" type="password" />
-        <p class="control__validator">Password required</p>
+        <input
+          class="control__input"
+          id="password"
+          type="password"
+          formControlName="password"
+        />
+        <p
+          *ngIf="controls.password.dirty && controls.password.errors?.required"
+          class="control__validator"
+        >
+          Password required
+        </p>
+        <p
+          *ngIf="controls.password.dirty && controls.password.errors?.minlength"
+          class="control__validator"
+        >
+          Password is too short
+        </p>
       </div>
 
       <div class="control">
-        <label class="control__label" for="password"
+        <label class="control__label" for="confirmedPassword"
           >Confirm your password</label
         >
-        <input class="control__input" id="password" type="password" />
-        <p class="control__validator">Password required</p>
+        <input
+          class="control__input"
+          id="confirmedPassword"
+          type="password"
+          formControlName="confirmedPassword"
+        />
+        <p
+          *ngIf="
+            controls.confirmedPassword.dirty &&
+            controls.confirmedPassword.errors?.required
+          "
+          class="control__validator"
+        >
+          Please confirm your password
+        </p>
+        <p
+          *ngIf="
+            controls.confirmedPassword.dirty &&
+            signUpForm.errors?.notConfirmed
+          "
+          class="control__validator"
+        >
+          Passwords are not the same
+        </p>
       </div>
 
-      <button class="sign-in-form__submit" type="submit">Continue</button>
+      <button
+        class="sign-in-form__submit"
+        [class.sign-in-form__submit--disabled]="!signUpForm.valid"
+        type="submit"
+        [disabled]="!signUpForm.valid"
+      >
+        Continue
+      </button>
     </form>
   </div>
   <p class="form-box__comment">

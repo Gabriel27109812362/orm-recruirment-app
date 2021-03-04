@@ -1,24 +1,57 @@
 <div class="form-box">
-    <h1 class="form-box__title">Sign in</h1>
-    <div class="form-box__form">
-      <form action="" class="sign-in-form">
-        <div class="control">
-          <label class="control__label" for="email">Email address</label>
-          <input class="control__input" id="email" type="text" />
-          <p class="control__validator">Email required</p>
-        </div>
+  <h1 class="form-box__title">Sign in</h1>
+  <div class="form-box__form">
+    <form class="sign-in-form" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <div class="control">
+        <label class="control__label" for="email">Email address</label>
+        <input
+          class="control__input"
+          id="email"
+          type="text"
+          formControlName="email"
+        />
+        <p
+          class="control__validator"
+          *ngIf="controls.email.dirty && controls.email.errors?.required"
+        >
+          Email required
+        </p>
+        <p
+          class="control__validator"
+          *ngIf="controls.email.dirty && controls.email.errors?.email"
+        >
+          Invalid email address
+        </p>
+      </div>
 
-        <div class="control">
-          <label class="control__label" for="password">Password</label>
-          <input class="control__input" id="password" type="password" />
-          <p class="control__validator">Password required</p>
-        </div>
+      <div class="control">
+        <label class="control__label" for="password">Password</label>
+        <input
+          class="control__input"
+          id="password"
+          type="password"
+          formControlName="password"
+        />
+        <p
+          class="control__validator"
+          *ngIf="controls.password.dirty && controls.password.errors?.required"
+        >
+          Password required
+        </p>
+      </div>
 
-        <button class="sign-in-form__submit" type="submit">Continue</button>
-      </form>
-    </div>
-    <p class="form-box__comment">
-      Not our member yet?
-      <a routerLink="/signUp">Click here to create new account</a>
-    </p>
+      <button
+        class="sign-in-form__submit"
+        [class.sign-in-form__submit--disabled]="!signInForm.valid"
+        type="submit"
+        [disabled]="!signInForm.valid"
+      >
+        Continue
+      </button>
+    </form>
   </div>
+  <p class="form-box__comment">
+    Not our member yet?
+    <a routerLink="/signUp">Click here to create new account</a>
+  </p>
+</div>
