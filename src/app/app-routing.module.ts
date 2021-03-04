@@ -4,8 +4,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'signUp', component: SignUpComponent },
-  { path: 'signIn', component: SignInComponent },
+  {
+    path: 'signUp',
+    component: SignUpComponent,
+    data: { animation: 'isRight' },
+  },
+  { path: 'signIn', component: SignInComponent, data: { animation: 'isLeft' } },
   { path: '', redirectTo: '/signIn', pathMatch: 'full' },
 ];
 

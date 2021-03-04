@@ -1,3 +1,5 @@
+import { disappear } from './../animations';
+import { FormControls } from './../types';
 import {
   lessThanTwoWordsValidator,
   confirmPasswordValidator,
@@ -8,6 +10,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-sign-up',
+  animations: [disappear],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
 })
@@ -27,14 +30,14 @@ export class SignUpComponent {
         validators: [Validators.required],
       }),
     },
-    { validators: [confirmPasswordValidator] }
+    { validators: [confirmPasswordValidator] },
   );
 
-  get controls() {
+  get controls(): FormControls {
     return this.signUpForm.controls;
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const {
       email,
       fullName,
@@ -42,7 +45,7 @@ export class SignUpComponent {
       confirmedPassword,
     } = this.signUpForm.value;
     alert(
-      `Entered data is correct email: ${email}, fullName: ${fullName}, password: ${password}, password confirmed: ${confirmedPassword} `
+      `Entered data is correct email: ${email}, fullName: ${fullName}, password: ${password}, password confirmed: ${confirmedPassword} `,
     );
   }
 }

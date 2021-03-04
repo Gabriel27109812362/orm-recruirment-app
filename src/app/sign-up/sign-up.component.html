@@ -18,12 +18,14 @@
         <p
           *ngIf="controls.email.dirty && controls.email.errors?.required"
           class="control__validator"
+          [@disapear]
         >
           Email required
         </p>
         <p
           class="control__validator"
           *ngIf="controls.email.dirty && controls.email.errors?.email"
+          [@disapear]
         >
           Invalid email address
         </p>
@@ -40,6 +42,7 @@
         <p
           *ngIf="controls.fullName.dirty && controls.fullName.errors?.required"
           class="control__validator"
+          [@disapear]
         >
           Full name is required
         </p>
@@ -49,6 +52,7 @@
             controls.fullName.errors?.lessThanTwoWords
           "
           class="control__validator"
+          [@disapear]
         >
           Missing last name
         </p>
@@ -65,12 +69,14 @@
         <p
           *ngIf="controls.password.dirty && controls.password.errors?.required"
           class="control__validator"
+          [@disapear]
         >
           Password required
         </p>
         <p
           *ngIf="controls.password.dirty && controls.password.errors?.minlength"
           class="control__validator"
+          [@disapear]
         >
           Password is too short
         </p>
@@ -92,15 +98,16 @@
             controls.confirmedPassword.errors?.required
           "
           class="control__validator"
+          [@disapear]
         >
           Please confirm your password
         </p>
         <p
           *ngIf="
-            controls.confirmedPassword.dirty &&
-            signUpForm.errors?.notConfirmed
+            controls.confirmedPassword.dirty && signUpForm.errors?.notConfirmed
           "
           class="control__validator"
+          [@disapear]
         >
           Passwords are not the same
         </p>

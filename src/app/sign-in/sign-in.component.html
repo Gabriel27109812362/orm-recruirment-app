@@ -13,12 +13,14 @@
         <p
           class="control__validator"
           *ngIf="controls.email.dirty && controls.email.errors?.required"
+          [@disapear]
         >
           Email required
         </p>
         <p
           class="control__validator"
           *ngIf="controls.email.dirty && controls.email.errors?.email"
+          [@disapear]
         >
           Invalid email address
         </p>
@@ -35,6 +37,7 @@
         <p
           class="control__validator"
           *ngIf="controls.password.dirty && controls.password.errors?.required"
+          [@disapear]
         >
           Password required
         </p>

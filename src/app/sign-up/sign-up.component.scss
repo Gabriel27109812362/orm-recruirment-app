@@ -1,11 +1,11 @@
-@import "../styles/common.scss";
+@import '../styles/common.scss';
 
 .form-box {
   width: 100%;
 
   &__title {
     color: $text-primary;
-    font-family: "Roboto Slab", serif;
+    font-family: 'Roboto Slab', serif;
     margin: 40px 40px 20px;
     font-size: 2.5rem;
 
@@ -23,18 +23,23 @@
   &__comment {
     margin: 30px;
     text-align: center;
-    font-family: "Roboto Slab", serif;
+    font-family: 'Roboto Slab', serif;
     font-size: 1.6rem;
     color: $text-primary;
 
     & > a {
-      font-family: "Roboto Slab", serif;
+      font-family: 'Roboto Slab', serif;
       font-size: 1.6rem;
       color: $text-primary;
       cursor: pointer;
+      transition: color 0.3s;
 
       & :visited {
         color: $text-primary;
+      }
+
+      &:hover {
+        color: $form-text;
       }
     }
   }
@@ -50,7 +55,7 @@
     width: 150px;
     margin: 35px auto;
     height: 40px;
-    font-family: "Roboto Slab", serif;
+    font-family: 'Roboto Slab', serif;
     font-size: 1.8rem;
     cursor: pointer;
     background-color: $accent;
@@ -73,21 +78,22 @@
     margin-bottom: 5px;
     color: $text-primary;
     font-size: 1.6rem;
-    font-family: "Roboto Slab", serif;
+    font-family: 'Roboto Slab', serif;
   }
 
   &__input {
     height: 35px;
     font-size: 1.8rem;
-    font-family: "Roboto Slab", serif;
+    font-family: 'Roboto Slab', serif;
   }
 
   &__validator {
     color: $accent;
-    font-family: "Roboto Slab", serif;
+    font-family: 'Roboto Slab', serif;
     font-size: 1.2rem;
     position: absolute;
     bottom: -24px;
     margin: 0;
+    animation: appear 0.3s;
   }
 }
