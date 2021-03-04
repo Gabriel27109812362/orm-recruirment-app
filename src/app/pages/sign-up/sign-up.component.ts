@@ -1,9 +1,9 @@
-import { disappear } from './../animations';
-import { FormControls } from './../types';
+import { disappear } from '../../animations';
+import { FormControls } from '../../types';
 import {
   lessThanTwoWordsValidator,
   confirmPasswordValidator,
-} from './../validators';
+} from '../../validators';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';

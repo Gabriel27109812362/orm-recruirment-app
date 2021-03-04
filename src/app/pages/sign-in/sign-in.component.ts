@@ -1,5 +1,5 @@
-import { disappear } from './../animations';
-import { FormControls } from './../types';
+import { disappear } from '../../animations';
+import { FormControls } from '../../types';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
