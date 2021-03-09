@@ -7,9 +7,9 @@ const routes: Routes = [
   {
     path: 'signUp',
     component: SignUpComponent,
-    data: { animation: 'isRight' },
+    data: { animation: 'firstAnimation' },
   },
-  { path: 'signIn', component: SignInComponent, data: { animation: 'isLeft' } },
+  { path: 'signIn', component: SignInComponent, data: { animation: 'secondAnimation' } },
   { path: '', redirectTo: '/signIn', pathMatch: 'full' },
 ];
 
